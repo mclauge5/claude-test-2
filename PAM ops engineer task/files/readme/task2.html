@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="img/favicon.ico" />
+    <title>Task 2 - UAM DevOps Test Tasks</title>
+    <link rel="stylesheet" href="css/theme.css" />
+    <link rel="stylesheet" href="css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Task 2";
+        var mkdocs_page_input_path = "task2.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="index.html" class="icon icon-home"> UAM DevOps Test Tasks
+        </a>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="index.html">Set-Up</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="task1.html">Task 1</a>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="task2.html">Task 2</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#request-counts">Request counts</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#parse-data">Parse data</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#bonus">Bonus</a>
+    </li>
+    </ul>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">UAM DevOps Test Tasks</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html" class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">Task 2</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="task-2-log-analysis">Task 2 - Log analysis</h1>
+<p>In this task you have to use Linux command line tools in conjunction, to quickly and efficiently analyze large amount of logs, no coding required.
+All necessary tools are already available inside the Docker container, they include but are not limited to: <code>zstdcat</code>, <code>zstdgrep</code>, <code>grep</code>, <code>sed</code>, <code>dc</code>, <code>perl</code>, <code>sort</code>, <code>uniq</code> etc.</p>
+<p>Use <code>SSH</code> to log into the docker container (username: <code>root</code>, password: <code>sshpass1</code>), alternatively you can use <code>docker exec</code> command to get into the container.</p>
+<p>Log file is in: <code>/opt/local/logs/</code></p>
+<h2 id="request-counts">Request counts</h2>
+<p><strong>1)</strong> Show how to get the count of <code>GetTemporaryAuthenticationTokenRequest</code> from the log.</p>
+<pre><code>14823
+</code></pre>
+<p><strong>2)</strong> Show how to get count of LoginRequests per minute.</p>
+<pre><code>636 0114-1145
+1400 0114-1146
+1400 0114-1147
+1400 0114-1148
+1400 0114-1149
+1400 0114-1150
+1400 0114-1151
+1400 0114-1152
+1400 0114-1153
+1400 0114-1154
+1400 0114-1155
+186 0114-1156
+</code></pre>
+<p><strong>3)</strong> Show how to list all requests (and their counts) that had <code>JSON OUT:</code> string in it.</p>
+<pre><code>14823 GetTemporaryAuthenticationTokenRequest-31284
+14822 LoginRequest-31280
+</code></pre>
+<h2 id="parse-data">Parse data</h2>
+<p><strong>4)</strong> For request/response with id 149418, show how to get values for <code>obj=</code>, <code>ipAddress=</code>, <code>customData=[KV(5</code>, <code>playerCode=</code> and <code>flow=</code> in one line.</p>
+<pre><code>PT04LOGIN49756-playtech93004, 10.144.227.18, #webVent, 58619722, 250168855196269516:2
+</code></pre>
+<h2 id="bonus">Bonus</h2>
+<p>Show how to get the <code>duration=</code> of all requests, summed up.</p>
+<pre><code>608740 (milliseconds)
+</code></pre>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="task1.html" class="btn btn-neutral float-left" title="Task 1"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="task1.html" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+  </span>
+</div>
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = ".";</script>
+    <script src="js/theme_extra.js"></script>
+    <script src="js/theme.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

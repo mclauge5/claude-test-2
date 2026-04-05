@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="description" content="None" />
+      <link rel="shortcut icon" href="img/favicon.ico" />
+    <title>Player Account Management Operations engineer test assignment</title>
+    <link rel="stylesheet" href="css/theme.css" />
+    <link rel="stylesheet" href="css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Set-Up";
+        var mkdocs_page_input_path = "index.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="index.html" class="icon icon-home"> Player Account Management Operations engineer test assignment
+        </a>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="index.html">Set-Up</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#creating-the-environment">Creating the environment</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#project-layout-docker-image">Project layout (Docker image)</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#database-structure">Database structure</a>
+    </li>
+    </ul>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="task1.html">Task 1</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="task2.html">Task 2</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Player Account Management Operations engineer test assignment</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html" class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">Set-Up</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="set-up">Set-Up</h1>
+<h2 id="creating-the-environment">Creating the environment</h2>
+<p>All tasks (<a href="task1.html">task 1</a>, <a href="task2.html">task 2</a>) will be inside <a href="https://www.docker.com/">Docker</a> container, so the first mini-task is to build and run the docker image.
+The necessary <code>Dockerfile</code> is provided in the root directory.</p>
+<p>If everything went well, you should be able to see the following with <code>docker ps</code> command:
+<img alt="Screenshot" src="img/docker_image_running.png" /></p>
+<p><strong>Note:</strong> This docker image exposes <code>port 22</code> for SSH connection, make sure to make it available (<code>publish</code>) outside of the container as well! (On the picture you can see container port 22 is mapped to 123, you can use what ever port you want though)</p>
+<h2 id="project-layout-docker-image">Project layout (Docker image)</h2>
+<pre><code>/opt/local/apps/
+    sql.jar                     # Application to query the DB. (Ver 1.0, broken)
+    database.db                 # SQLite DB file.
+/opt/local/apps/lib/
+    sqlite-jdbc-3.45.1.0.jar    # SQLide DB Driver
+/opt/local/apps/versions
+    sql.jar.zst                 # Version of the working sql.jar (Ver 1.1)
+/opt/local/logs
+    server.log.gz               # Log file for task 2
+</code></pre>
+<h2 id="database-structure">Database structure</h2>
+<p>(Open image in new tab to see it full size)
+<img alt="Screenshot" src="img/db_table_structure.png" /></p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="task1.html" class="btn btn-neutral float-right" title="Task 1">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+    
+      <span><a href="task1.html" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = ".";</script>
+    <script src="js/theme_extra.js"></script>
+    <script src="js/theme.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
+
+<!--
+MkDocs version : 1.5.3
+Build Date UTC : 2024-03-07 07:38:28.320115+00:00
+-->
