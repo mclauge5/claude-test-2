@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="img/favicon.ico" />
+    <title>Task 1 - UAM DevOps Test Tasks</title>
+    <link rel="stylesheet" href="css/theme.css" />
+    <link rel="stylesheet" href="css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Task 1";
+        var mkdocs_page_input_path = "task1.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="index.html" class="icon icon-home"> UAM DevOps Test Tasks
+        </a>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="index.html">Set-Up</a>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="task1.html">Task 1</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#part-1-sqljar-version-change">Part 1: SQL.jar version change</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#part-2-query-db-and-parse-the-results">Part 2: Query DB and parse the results</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#completed-app">Completed app</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#brownie-points">Brownie points</a>
+    </li>
+    </ul>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="task2.html">Task 2</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">UAM DevOps Test Tasks</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html" class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">Task 1</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="task-1-student-grades">Task 1 - Student grades</h1>
+<p>This task is in 2 parts, where in the first part you have to change the <code>sql.jar</code> version from version <code>1.0 (broken)</code> to version <code>1.1</code> in order to be able to query the database.
+Second part consists of querying the database and parsing the results.</p>
+<p>You can write your application in what ever language you want but our preferred languages are: <code>Java</code>, <code>Python</code>, <code>C#</code> and <code>Bash</code>. The application can be console based but GUI solution is always great to see!</p>
+<p>Your application must send the commands to the docker container (and receive) via <code>SSH</code> protocol (username: <code>root</code>, password: <code>sshpass1</code>)</p>
+<p>Your application must complete both parts in a single execution and display the results. Code should be reasonably commented and you must provide steps, requirements and dependencies for easy understanding how to run your application.</p>
+<h2 id="part-1-sqljar-version-change">Part 1: SQL.jar version change</h2>
+<p>Send necessary bash commands via SSH to change and verify the version and functionality of the sql.jar </p>
+<ul>
+<li>Check the version and error of the current <code>sql.jar</code>, command line arguments: <code>-version</code> and <code>-query "sql query"</code></li>
+<li>Remove <code>sql.jar</code></li>
+<li>Copy and decompress <code>sql.jar.zst</code> from <code>versions/</code> folder</li>
+<li>Verify the version and functionality of <code>sql.jar</code> again</li>
+</ul>
+<p>I used <code>"select * from classes"</code> SQL query in my example but it doesn't have to be that. (<a href="index.html#database-structure">database structure</a>)</p>
+<p>Output should look something like this:</p>
+<pre><code>App version: 1.0
+No suitable driver found for jdbc:oracle:thin:database.db
+---
+Removing sql.jar version 1.0
+Changing to sql.jar version 1.1
+---
+App version: 1.1
+1 (id), Biology (name)
+2 (id), Mathematics (name)
+3 (id), Arts (name)
+4 (id), Chemistry (name)
+5 (id), Programming (name)
+6 (id), Geography (name)
+7 (id), Physics (name)
+8 (id), Astronomy (name)
+9 (id), History (name)
+10 (id), Robotics (name)
+</code></pre>
+<h2 id="part-2-query-db-and-parse-the-results">Part 2: Query DB and parse the results</h2>
+<ul>
+<li>Use <code>sql.jar</code> to query the DB (with <code>-query "sql query"</code> command line argument)</li>
+<li>Parse the output (remove unnecessary brackets)</li>
+<li>Display the result in a formatted table</li>
+</ul>
+<p>Table needs to have student names from <code>students table</code> in the first column with their age in brackets next to the name, other columns are class names from <code>classes table</code> with corresponding grades from <code>grades table</code> as row values, like this:</p>
+<p><img alt="Screenshot" src="img/sql_table_result.png" /></p>
+<h2 id="completed-app">Completed app</h2>
+<p>When you made a console based app, the completed app should output something like this:</p>
+<p><img alt="Screenshot" src="img/completed_task1_result.png" /></p>
+<p>GUI based app should still show all this info but presentation is more up to you.</p>
+<h2 id="brownie-points">Brownie points</h2>
+<p>Some ideas to consider, not strictly necessary but will definitely show what you've got! 💪</p>
+<ul>
+<li>Think about exceptions, what happens when your application fails to connect with the SSH server? (you can simulate that scenario by stopping the docker container)</li>
+<li>Implement a solution in version change task that will not change the version if sql.jar is already on version 1.1</li>
+<li>Forget all good programming practices and hack together the same program with shortest code you can think of.</li>
+</ul>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="index.html" class="btn btn-neutral float-left" title="Set-Up"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="task2.html" class="btn btn-neutral float-right" title="Task 2">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="index.html" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="task2.html" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = ".";</script>
+    <script src="js/theme_extra.js"></script>
+    <script src="js/theme.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
